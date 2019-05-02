@@ -1,0 +1,71 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Write your model definitions here
+ */
+
+namespace org.teste2.virtue
+
+asset Contrato identified by contratoId {
+  o String contratoId
+  --> parteContratante contratante
+  --> parteContratada contratada
+  --> agReflorestamento agenteReflorestamento
+  --> pEmissor emissor
+  o Boolean mutavel
+}
+
+participant parteContratante identified by pContratanteId {
+  o String pContratanteId
+  o String pContratanteName
+}
+
+participant agReflorestamento identified by agRefId {
+  o String agRefId
+  o String agRefName
+}
+
+participant pEmissor identified by emissorId {
+  o String emissorId
+  o String emissorName
+}
+participant parteContratada identified by pContratadaId {
+  o String pContratadaId
+  o String pContratadaName
+}
+
+transaction mudarContratante {
+  --> Contrato contrato 
+  --> parteContratante novoContratante
+}
+
+transaction mudarContratado {
+  --> Contrato contrato
+  --> parteContratada novoContratado
+}
+
+transaction mudarEmissor {
+  --> Contrato contrato
+  --> pEmissor novoEmissor
+}
+
+transaction mudarAgRef {
+  --> Contrato contrato
+  --> agReflorestamento novoAgRef
+}
+
+event tradeNotification {
+  --> Contrato contrato
+}
