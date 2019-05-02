@@ -3,7 +3,7 @@
     "composer": "^0.19.20"
   },
   "name": "contract-trading-v2-network",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Uma rede para firmação e troca de contratos entre usuários permissionados",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/contract-trading-v2-network.bna",
